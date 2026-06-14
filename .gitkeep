@@ -1,0 +1,2 @@
+New-Item uploads\.gitkeep -ItemType File -Force
+New-Item vectorstore\.gitkeep -ItemType File -Force

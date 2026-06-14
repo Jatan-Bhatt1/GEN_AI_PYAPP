@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-card: rgba(255, 255, 255, 0.02);
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #ffffff;
+    --accent-glow: rgba(255, 255, 255, 0.1);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Glass card */
+.glass {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+/* Gradient text (subtle monochrome) */
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff, #a1a1aa, #d4d4d8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Message animations */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-enter {
+    animation: fadeSlideIn 0.3s ease forwards;
+}
+
+/* Typing cursor */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.typing-cursor::after {
+    content: '▋';
+    animation: blink 0.7s infinite;
+    color: var(--accent);
+    margin-left: 2px;
+}
+
+/* Prose (Markdown) styles */
+.prose-dark {
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+.prose-dark h1,
+.prose-dark h2,
+.prose-dark h3 {
+    color: #fff;
+    font-weight: 600;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.prose-dark p {
+    margin: 0.6em 0;
+}
+
+.prose-dark ul,
+.prose-dark ol {
+    padding-left: 1.5em;
+    margin: 0.6em 0;
+}
+
+.prose-dark li {
+    margin: 0.3em 0;
+}
+
+.prose-dark code {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.875em;
+    color: #e4e4e7;
+}
+
+.prose-dark pre {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 0.8em 0;
+}
+
+.prose-dark pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #e2e8f0;
+    font-size: 0.875em;
+}
+
+.prose-dark blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    color: var(--text-secondary);
+    margin: 0.8em 0;
+}
+
+.prose-dark table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.8em 0;
+    font-size: 0.9em;
+}
+
+.prose-dark th {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-weight: 600;
+}
+
+.prose-dark td {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+}
+
+.prose-dark a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+.prose-dark a:hover {
+    text-decoration-color: #ffffff;
+}
+
+.prose-dark strong {
+    color: #fff;
+    font-weight: 600;
+}
