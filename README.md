@@ -1,71 +1,110 @@
 # Fullstack Generative AI Application
 
-This project is a comprehensive Fullstack Generative AI application featuring a robust **Python/FastAPI** backend and a modern **Next.js/React** frontend. It is designed to handle complex LLM (Large Language Model) operations, including RAG (Retrieval-Augmented Generation), intelligent agents, and memory management.
+Welcome to the **Fullstack Generative AI Application**! This project combines a powerful, modular **Python/FastAPI** backend with a modern, responsive **Next.js/React** frontend. It is designed to handle complex Large Language Model (LLM) operations, including Retrieval-Augmented Generation (RAG), intelligent agents with tools, and long-term conversational memory.
 
-## 🚀 Project Structure
+## 🌟 Key Features
+- **Intelligent Agents:** AI entities that can make decisions and use tools (web search, weather API, etc.).
+- **RAG Capabilities:** Seamlessly query your custom documents using a local vector store.
+- **Conversational Memory:** Retain context and summarize long chat histories.
+- **Modern UI:** Built with Next.js, Tailwind CSS, and TypeScript for a clean, responsive user experience.
+- **Multi-LLM Support:** Easily switch between OpenAI, Google (Gemini), and Groq.
 
-The repository is divided into two main parts:
+---
 
-### Backend (`/backend`)
-A powerful, modular Python backend built with **FastAPI**.
-- **`agents/`**: Logic for AI agents (entities that can use tools and make decisions).
-- **`api/`**: REST API endpoints and routes.
-- **`chains/`**: Sequential operations and LLM chains.
-- **`evaluations/`**: Scripts for testing and evaluating the AI's responses.
-- **`memory/`**: Chat history and context retention.
-- **`prompts/`**: System prompts and templates for instructing LLMs.
-- **`rag/`**: Retrieval-Augmented Generation logic for fetching custom data context.
-- **`tools/`**: Custom tools accessible by the agents.
-- **`workflows/`**: Complex orchestration logic and multi-step processes.
-- **`main.py`**: The main entry point for the FastAPI server.
-- **`database.py` & `config.py`**: Database connections and application configurations.
+## 🛠️ Prerequisites
 
-### Frontend (`/frontend`)
-A modern, responsive web application built with **Next.js**, **TypeScript**, and **Tailwind CSS**.
-- **`app/`**: Next.js App Router for pages and layouts.
-- **`components/`**: Reusable UI components (buttons, chat interfaces, etc.).
-- **`lib/`**: Utility functions and frontend helpers.
+Before you begin, ensure you have the following installed on your machine:
+- [Git](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [Python](https://www.python.org/downloads/) (3.9 or higher)
+- [PostgreSQL](https://www.postgresql.org/) (for database)
+- [Redis](https://redis.io/) (for memory buffer)
 
-### Data & Environment Storage
-- **`uploads/`**: Directory for storing user-uploaded files.
-- **`vectorstore/`**: Local vector database files powering the RAG system.
-- *(Note: `uploads/`, `vectorstore/`, and `.env` files are ignored by git to keep your data secure and repository clean)*
+---
 
-## 🛠️ Getting Started
+## 🚀 Installation Guide
 
-### Prerequisites
-- Node.js (v18+)
-- Python (3.9+)
+Follow these steps to get a working copy of the project on your local machine.
 
-### 1. Backend Setup
-Navigate to the root directory and activate your virtual environment:
+### 1. Clone the Repository
+First, clone the forked repository to your local machine and navigate into the project directory:
 ```bash
-# Activate virtual environment (Windows)
-.\venv\Scripts\activate
-
-# Activate virtual environment (macOS/Linux)
-source venv/bin/activate
-
-# Install dependencies (if not already installed)
-pip install -r backend/requirements.txt
-
-# Run the FastAPI server
-uvicorn backend.main:app --reload --port 8000
+git clone https://github.com/YOUR_USERNAME/GEN_AI_PYAPP.git
+cd GEN_AI_PYAPP
 ```
 
-### 2. Frontend Setup
-Open a new terminal, navigate to the frontend directory:
-```bash
-cd frontend
+### 2. Environment Variables Setup
+You need to configure your environment variables for the backend to function correctly (API keys, database URLs, etc.).
 
-# Install dependencies
-npm install
+1. In the root directory, create a copy of the `.env.example` file and name it `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open the `.env` file and fill in your specific API keys and configuration details (e.g., `OPENAI_API_KEY`, `DATABASE_URL`, `REDIS_URL`).
 
-# Run the Next.js development server
-npm run dev
-```
+### 3. Backend Setup (FastAPI)
+The backend requires a Python virtual environment to manage dependencies securely.
 
-The frontend will be available at `http://localhost:3000` and the backend API at `http://localhost:8000`.
+1. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   ```
 
-## ⚙️ Environment Variables
-Make sure to create a `.env` file in the root directory (and `.env.local` in `/frontend` if needed) to store your API keys (e.g., OpenAI, Gemini) and database URIs.
+2. Activate the virtual environment:
+   - **Windows:**
+     ```bash
+     .\venv\Scripts\activate
+     ```
+   - **macOS/Linux:**
+     ```bash
+     source venv/bin/activate
+     ```
+
+3. Install the required Python packages:
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+
+4. Start the backend FastAPI server:
+   ```bash
+   uvicorn backend.main:app --reload --port 8000
+   ```
+   *The backend API will now be running at `http://localhost:8000`.*
+
+### 4. Frontend Setup (Next.js)
+With the backend running, open a **new terminal window/tab**, and set up the frontend web app.
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install the Node.js dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the Next.js development server:
+   ```bash
+   npm run dev
+   ```
+   *The frontend will now be accessible in your browser at `http://localhost:3000`.*
+
+---
+
+## 📂 Project Structure Overview
+
+- **`backend/`**: Contains the FastAPI application.
+  - `agents/`, `chains/`, `tools/`: Core LLM logic and LangChain integrations.
+  - `rag/`, `memory/`: Logic for vector search and conversation history.
+  - `api/`, `main.py`: REST API routes and server entry point.
+- **`frontend/`**: Contains the Next.js frontend application.
+  - `app/`, `components/`: React components and page routing.
+- **`uploads/`**: Directory for user-uploaded files (git-ignored).
+- **`vectorstore/`**: Local vector database files for RAG (git-ignored).
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+---
+*Happy Coding!* 🚀
